@@ -16,11 +16,12 @@ CLass Cart
 		}
 	}
 	public  function remove()
-	{
-		foreach ($_SESSION['cart'] as $key => $value) {
-			if ($value[0] === $_GET['delete']) {
-				unset ($_SESSION['cart'][$key]);
-				sort($_SESSION['cart']);
+	{	if (isset($_SESSION['cart'])) {
+			foreach ($_SESSION['cart'] as $key => $value) {
+				if ($value[0] === $_GET['delete']) {
+					unset ($_SESSION['cart'][$key]);
+					sort($_SESSION['cart']);
+				}
 			}
 		}
 	}		
